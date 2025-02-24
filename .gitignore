@@ -26,6 +26,10 @@
 # Visual Studio cache directory
 .vs/
 
+#Quinn Wrote This Part
+.Json
+.meta
+
 # Gradle cache directory
 .gradle/
 
