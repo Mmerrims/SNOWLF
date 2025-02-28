@@ -4,6 +4,7 @@ public class LineForce : MonoBehaviour
 {
     [SerializeField] private float _stopVelocity;
     [SerializeField] private float _shotPower;
+    [SerializeField] private float _jumpPower;
     [SerializeField] private Vector3 _currentShotStrength;
 
     [SerializeField] private LineRenderer _lineRenderer;
@@ -33,6 +34,24 @@ public class LineForce : MonoBehaviour
         //}
 
         ProcessAim();
+
+        //if (_currentShotStrength.x > 10000)
+        //{
+        //    rigidbody.velocity = Vector3.zero;
+        //} 
+        //else if (_currentShotStrength.x < -10000)
+        //{
+        //    rigidbody.velocity = Vector3.zero;
+        //}
+
+        //if (_currentShotStrength.z > 10000)
+        //{
+        //    rigidbody.velocity = Vector3.zero;
+        //} 
+        //else if (_currentShotStrength.z < -10000)
+        //{
+        //    rigidbody.velocity = Vector3.zero;
+        //}
     }
 
     private void OnMouseDown()
@@ -76,12 +95,9 @@ public class LineForce : MonoBehaviour
         float strength = Vector3.Distance(transform.position, horizontalWorldPoint);
 
         _currentShotStrength = (direction * strength * _shotPower);
-        if (_currentShotStrength.x > 500 || _currentShotStrength.x < -500 || _currentShotStrength.z > 500 || _currentShotStrength.z < -500)
-        {
-            _currentShotStrength.x /= 2.2f;
-            _currentShotStrength.z /= 2.2f;
-        }
-        rigidbody.AddForce(_currentShotStrength);
+        _currentShotStrength = new Vector3 (direction.x * strength * _shotPower, _jumpPower ,direction.z * strength * _shotPower);
+        
+        rigidbody.AddForce(_currentShotStrength / 2);
         // This makes it so the ball cannot be shot while moving
        //isIdle = false;
     }
