@@ -12,12 +12,6 @@ public class SetScale : MonoBehaviour
     [SerializeField] private float scaleDelay = .1f;
     [SerializeField,Tooltip("Minimum speed that the ball must goes before it scales")] private float snolfSpeed = .1f;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent(out Rigidbody rb))
