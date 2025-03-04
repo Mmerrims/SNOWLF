@@ -11,8 +11,8 @@ public class SetScale : MonoBehaviour
     private List<Rigidbody> rigidbodies = new ();
     [SerializeField] private float scaleDelay = .1f;
     [SerializeField,Tooltip("Minimum speed that the ball must goes before it scales")] private float SnolfSpeed = .1f;
-   // [SerializeField,Tooltip("Minimum speed that the ball must increase before the scale rate increases")] private float maxSnolfSpeed = 3f;
-
+    [SerializeField] private float maxScaleSpeed = 8f;
+    [SerializeField] private bool useSpeed;
     private void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent(out Rigidbody rb))
@@ -47,7 +47,8 @@ public class SetScale : MonoBehaviour
                 }
                 Vector3 snolfScale = rb.transform.localScale;
                 print("before, " + snolfScale);
-                float sizeController = Mathf.Clamp(snolfScale.x + (scaleDelay * scale), minScale, maxScale);
+                float speedscale = useSpeed ? Mathf.Clamp(rb.velocity.magnitude, 0, maxScaleSpeed) : 1;
+                float sizeController = Mathf.Clamp(snolfScale.x + (scaleDelay * scale *speedscale), minScale, maxScale);
                 snolfScale = new Vector3(sizeController, sizeController, sizeController);
                 rb.transform.localScale = snolfScale;
                 print("after, " + snolfScale);
