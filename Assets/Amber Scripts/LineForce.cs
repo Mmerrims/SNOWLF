@@ -10,7 +10,7 @@ public class LineForce : MonoBehaviour
     [SerializeField] private LineRenderer _lineRenderer;
     private Rigidbody rigidbody;
 
-    private bool isIdle;
+    [SerializeField] private bool _isIdle;
     private bool isAiming;
 
     private bool initialTP;
@@ -26,7 +26,7 @@ public class LineForce : MonoBehaviour
         rigidbody = GetComponent<Rigidbody>();
 
         isAiming = false;
-        isIdle = true;
+        _isIdle = true;
         _lineRenderer.enabled = false;
     }
 
@@ -48,7 +48,7 @@ public class LineForce : MonoBehaviour
     private void OnMouseDown()
     {
         initialTP = false;
-        if (isIdle)
+        if (_isIdle)
         {
             isAiming = true;
         }
@@ -56,7 +56,7 @@ public class LineForce : MonoBehaviour
 
     private void ProcessAim()
     {
-        if (!isAiming || !isIdle)
+        if (!isAiming || !_isIdle)
         {
             return;
         }
@@ -73,6 +73,7 @@ public class LineForce : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             Shoot(worldPoint.Value);
+            _isIdle = false;
         }
     }
 
@@ -91,7 +92,7 @@ public class LineForce : MonoBehaviour
         
         rigidbody.AddForce(_currentShotStrength / 2);
         // This makes it so the ball cannot be shot while moving
-       //isIdle = false;
+       _isIdle = false;
     }
 
     private void DrawLine(Vector3 worldPoint)
@@ -109,7 +110,7 @@ public class LineForce : MonoBehaviour
     {
         rigidbody.velocity = Vector3.zero;
         rigidbody.angularVelocity = Vector3.zero;
-        isIdle = true;
+        _isIdle = true;
     }
 
     private Vector3? CastMouseClickRay()
