@@ -9,11 +9,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3424766312731165228}
+  - component: {fileID: 790033271941409120}
   - component: {fileID: 7803439142063810804}
   - component: {fileID: 4553186159953612504}
   - component: {fileID: 8875128997234515285}
   - component: {fileID: 5851670916917444354}
   - component: {fileID: 2596580614393552302}
+  - component: {fileID: 6178433162106626782}
   m_Layer: 3
   m_Name: Snolfball
   m_TagString: Player
@@ -38,6 +40,19 @@ Transform:
   - {fileID: 8036253184311737553}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &790033271941409120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1522670205428872749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 323613268005af5498317dee741f4bd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MPI: {fileID: 6178433162106626782}
 --- !u!33 &7803439142063810804
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -153,6 +168,36 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!114 &6178433162106626782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1522670205428872749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: f92e154ca8d1b324d831531d5602ca94, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player Controls
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &4910151960994634648
 GameObject:
   m_ObjectHideFlags: 0
