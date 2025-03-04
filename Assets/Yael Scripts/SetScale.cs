@@ -10,7 +10,8 @@ public class SetScale : MonoBehaviour
     [SerializeField] private float minScale = 1f;
     private List<Rigidbody> rigidbodies = new ();
     [SerializeField] private float scaleDelay = .1f;
-    [SerializeField,Tooltip("Minimum speed that the ball must goes before it scales")] private float snolfSpeed = .1f;
+    [SerializeField,Tooltip("Minimum speed that the ball must goes before it scales")] private float SnolfSpeed = .1f;
+   // [SerializeField,Tooltip("Minimum speed that the ball must increase before the scale rate increases")] private float maxSnolfSpeed = 3f;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -40,7 +41,7 @@ public class SetScale : MonoBehaviour
         {
             foreach (var rb in rigidbodies)
             {
-                if( rb.velocity.magnitude < snolfSpeed)
+                if( rb.velocity.magnitude < SnolfSpeed)
                 {
                     continue;
                 }
