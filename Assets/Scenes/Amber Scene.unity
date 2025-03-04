@@ -255,8 +255,8 @@ Transform:
   m_GameObject: {fileID: 497840528}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12.6, y: 1, z: 26.249998}
-  m_LocalScale: {x: 9.495737, y: 4.3046, z: 9.539532}
+  m_LocalPosition: {x: 13.0889, y: 1, z: 26.249998}
+  m_LocalScale: {x: 10.473799, y: 4.3046, z: 9.539532}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1043,7 +1043,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Click + Drag ball to launch ball!
 
-    Snow increases ball, salt decreses!
+    Snow increases ball, salt decreases!
 
     Increase
     ball size to activate Pressure plate! (Grey box)
@@ -1233,7 +1233,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8031604045822524010, guid: cfaf74d3743b342449139b1e46f9a932, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.2
+      value: 21.05
       objectReference: {fileID: 0}
     - target: {fileID: 8031604045822524010, guid: cfaf74d3743b342449139b1e46f9a932, type: 3}
       propertyPath: m_LocalPosition.y
