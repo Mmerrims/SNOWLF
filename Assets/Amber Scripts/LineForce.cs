@@ -13,11 +13,20 @@ public class LineForce : MonoBehaviour
     private bool isIdle;
     private bool isAiming;
 
+    private bool initialTP;
+
+    [SerializeField] private CheckpointManager _checkpointManager;
+
     private void Awake()
     {
+        initialTP = true;
+        _checkpointManager = FindObjectOfType<CheckpointManager>();
+        print(_checkpointManager.LastCheckPointPos);
+        transform.position = _checkpointManager.LastCheckPointPos;
         rigidbody = GetComponent<Rigidbody>();
 
         isAiming = false;
+        isIdle = true;
         _lineRenderer.enabled = false;
     }
 
@@ -28,34 +37,17 @@ public class LineForce : MonoBehaviour
             Stop();
         }
 
-        //if(rigidbody.velocity.x > 10)
-        //{
-        //    rigidbody.velocity = new Vector3 (rigidbody.velocity.x / 2, rigidbody.velocity.y, rigidbody.velocity.z / 2);
-        //}
-
         ProcessAim();
-
-        //if (_currentShotStrength.x > 10000)
-        //{
-        //    rigidbody.velocity = Vector3.zero;
-        //} 
-        //else if (_currentShotStrength.x < -10000)
-        //{
-        //    rigidbody.velocity = Vector3.zero;
-        //}
-
-        //if (_currentShotStrength.z > 10000)
-        //{
-        //    rigidbody.velocity = Vector3.zero;
-        //} 
-        //else if (_currentShotStrength.z < -10000)
-        //{
-        //    rigidbody.velocity = Vector3.zero;
-        //}
+        
+        if (initialTP)
+        {
+            transform.position = _checkpointManager.LastCheckPointPos;
+        }
     }
 
     private void OnMouseDown()
     {
+        initialTP = false;
         if (isIdle)
         {
             isAiming = true;

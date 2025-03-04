@@ -1,7 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -11,9 +7,16 @@ public class PlayerControls : MonoBehaviour
     public PlayerInput MPI;
     private InputAction restart;
     private InputAction quit;
+    [SerializeField] private bool gameRestarting = false;
+    [SerializeField] private CheckpointManager _checkpointManager;
+
 
     private void Awake()
     {
+        _checkpointManager = FindObjectOfType<CheckpointManager>();
+        print(_checkpointManager.LastCheckPointPos);
+        transform.position = _checkpointManager.LastCheckPointPos;
+
         restart = MPI.currentActionMap.FindAction("Restart");
         quit = MPI.currentActionMap.FindAction("Quit");
 
@@ -29,6 +32,14 @@ public class PlayerControls : MonoBehaviour
 
     private void Restart(InputAction.CallbackContext context)
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        if (gameRestarting == false)
+        {
+            gameRestarting = true;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+        else
+        {
+            return;
+        }
     }
 }
