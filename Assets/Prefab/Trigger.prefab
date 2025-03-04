@@ -70,4 +70,6 @@ MonoBehaviour:
   maxScale: 3
   minScale: 1
   scaleDelay: 0.1
-  snolfSpeed: 0.1
+  SnolfSpeed: 0.1
+  maxScaleSpeed: 8
+  useSpeed: 1

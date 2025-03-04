@@ -56,6 +56,10 @@ PrefabInstance:
       propertyPath: scale
       value: -1.1
       objectReference: {fileID: 0}
+    - target: {fileID: 8745391230612447537, guid: 20d580dce16edd448803f91b386c3047, type: 3}
+      propertyPath: useSpeed
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
