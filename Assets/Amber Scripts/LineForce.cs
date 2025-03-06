@@ -73,7 +73,7 @@ public class LineForce : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             Shoot(worldPoint.Value);
-            _isIdle = false;
+            //_isIdle = false;
         }
     }
 
@@ -92,7 +92,7 @@ public class LineForce : MonoBehaviour
         
         rigidbody.AddForce(_currentShotStrength / 2);
         // This makes it so the ball cannot be shot while moving
-       _isIdle = false;
+       //_isIdle = false;
     }
 
     private void DrawLine(Vector3 worldPoint)
