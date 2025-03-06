@@ -42,4 +42,20 @@ public class PlayerControls : MonoBehaviour
             return;
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Death"))
+        {
+            if (gameRestarting == false)
+            {
+                gameRestarting = true;
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            }
+            else
+            {
+                return;
+            }
+        }
+    }
 }
