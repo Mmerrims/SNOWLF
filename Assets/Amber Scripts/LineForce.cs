@@ -17,8 +17,12 @@ public class LineForce : MonoBehaviour
 
     [SerializeField] private CheckpointManager _checkpointManager;
 
+    private LayerMask layerMask;
+
     private void Awake()
     {
+        layerMask = LayerMask.GetMask("Player");
+
         initialTP = true;
         _checkpointManager = FindObjectOfType<CheckpointManager>();
         print(_checkpointManager.LastCheckPointPos);
@@ -130,7 +134,7 @@ public class LineForce : MonoBehaviour
         Vector3 worldMousePosFar = Camera.main.ScreenToWorldPoint(screenMouusePosFar);
         Vector3 worldMousePosNear = Camera.main.ScreenToWorldPoint(screenMouusePosNear);
         RaycastHit hit;
-        if (Physics.Raycast(worldMousePosNear, worldMousePosFar - worldMousePosNear, out hit, float.PositiveInfinity))
+        if (Physics.Raycast(worldMousePosNear, worldMousePosFar - worldMousePosNear, out hit, float.PositiveInfinity, layerMask))
         {
             return hit.point;
         } else
