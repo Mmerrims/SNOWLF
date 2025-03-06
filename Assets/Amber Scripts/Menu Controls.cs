@@ -6,7 +6,7 @@ public class MenuControls : MonoBehaviour
 {
     [SerializeField] private GameObject MainMenuObjects;
     [SerializeField] private GameObject CreditsObject;
-    public void StartGame()
+    public void NextScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
