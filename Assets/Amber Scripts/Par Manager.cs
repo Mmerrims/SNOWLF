@@ -7,6 +7,7 @@ public class ParManager : MonoBehaviour
     private static ParManager instance;
     private float levelPar;
     private float playerPar;
+    [SerializeField] private LevelPar _levelPar;
 
     private void Awake()
     {
@@ -25,8 +26,34 @@ public class ParManager : MonoBehaviour
         }
     }
 
+    private void FixedUpdate()
+    {
+        _levelPar = FindObjectOfType<LevelPar>();
+
+        if (_levelPar == null)
+        {
+            print("No level par found");
+        }
+    }
+
     public void AddHit()
     {
         playerPar += 1;
+        
+        if (_levelPar != null)
+        {
+            if (_levelPar.LevelsPar > playerPar)
+            {
+                print("Under Par");
+            } 
+            else if (_levelPar.LevelsPar == playerPar)
+            {
+                print("On Par");
+            } 
+            else
+            {
+                print("Above Par");
+            }
+        }
     }
 }
