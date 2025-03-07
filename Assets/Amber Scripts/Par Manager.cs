@@ -1,12 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ParManager : MonoBehaviour
 {
     private static ParManager instance;
-    private float levelPar;
     private float playerPar;
+    private ParSetter _parSetter;
 
     private void Awake()
     {
@@ -25,8 +23,30 @@ public class ParManager : MonoBehaviour
         }
     }
 
+    private void FixedUpdate()
+    {
+        _parSetter = FindObjectOfType<ParSetter>();
+    }
+
     public void AddHit()
     {
         playerPar += 1;
+
+        if (_parSetter != null)
+        {
+            if (_parSetter.LevelPar > playerPar)
+            {
+                print("Under Par");
+            }
+            else if (_parSetter.LevelPar == playerPar)
+            {
+                print("On Par");
+            }
+            else
+            {
+                print("Above Par");
+            }
+        }
+        
     }
 }
