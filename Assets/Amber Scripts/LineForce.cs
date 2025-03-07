@@ -87,11 +87,6 @@ public class LineForce : MonoBehaviour
 
     private void Shoot(Vector3 worldPoint)
     {
-        if (_parManager != null)
-        {
-            _parManager.AddHit();
-        }
-
         isAiming = false;
         _lineRenderer.enabled = false;
 
