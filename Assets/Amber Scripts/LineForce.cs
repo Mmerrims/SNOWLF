@@ -16,11 +16,15 @@ public class LineForce : MonoBehaviour
     private bool initialTP;
 
     [SerializeField] private CheckpointManager _checkpointManager;
+    [SerializeField] private ParManager _parManager;
 
     private LayerMask layerMask;
 
     private void Awake()
     {
+        _parManager = FindObjectOfType<ParManager>();
+
+
         layerMask = LayerMask.GetMask("Player");
 
         initialTP = true;
