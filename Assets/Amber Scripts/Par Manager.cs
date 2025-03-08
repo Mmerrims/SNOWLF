@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class ParManager : MonoBehaviour
@@ -8,6 +7,10 @@ public class ParManager : MonoBehaviour
     private float levelPar;
     private float playerPar;
     [SerializeField] private LevelPar _levelPar;
+    [SerializeField] private GameObject _levelParText;
+    [SerializeField] private GameObject _levelParScoreName;
+    [SerializeField] private TMP_Text _levelParTextbox;
+    [SerializeField] private TMP_Text _levelParScoreNameText;
 
     private void Awake()
     {
@@ -30,9 +33,45 @@ public class ParManager : MonoBehaviour
     {
         _levelPar = FindObjectOfType<LevelPar>();
 
+        _levelParText = GameObject.Find("Player Score Text");
+        _levelParScoreName = GameObject.Find("Score Name Text");
+        if (_levelParText != null)
+        {
+            _levelParTextbox = _levelParText.GetComponent<TMP_Text>();
+
+            _levelParTextbox.text = ("Score: " + playerPar);
+        }
+
+        if (_levelParScoreName != null)
+        {
+            _levelParScoreNameText = _levelParScoreName.GetComponent<TMP_Text>();
+        }
+
+
+
         if (_levelPar == null)
         {
             print("No level par found");
+        }
+
+        if (_levelPar != null)
+        {
+            if (_levelPar.LevelsPar > playerPar && _levelParScoreName != null)
+            {
+
+                _levelParScoreNameText.text = ("Under Par!");
+            }
+            else if (_levelPar.LevelsPar == playerPar && _levelParScoreName != null)
+            {
+                _levelParScoreNameText.text = ("On Par!");
+            }
+            else
+            {
+                if (_levelParScoreName != null)
+                {
+                    _levelParScoreNameText.text = ("Above Par.");
+                }
+            }
         }
     }
 
@@ -40,20 +79,6 @@ public class ParManager : MonoBehaviour
     {
         playerPar += 1;
         
-        if (_levelPar != null)
-        {
-            if (_levelPar.LevelsPar > playerPar)
-            {
-                print("Under Par");
-            } 
-            else if (_levelPar.LevelsPar == playerPar)
-            {
-                print("On Par");
-            } 
-            else
-            {
-                print("Above Par");
-            }
-        }
+        
     }
 }

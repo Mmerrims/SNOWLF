@@ -1,5 +1,5 @@
 {
-    "name": "New Controls",
+    "name": "Player Input",
     "maps": [
         {
             "name": "Player Controls",
@@ -39,7 +39,7 @@
                 {
                     "name": "",
                     "id": "200163bd-3f32-4f2f-ae81-98a824af88a2",
-                    "path": "<Keyboard>/q",
+                    "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
