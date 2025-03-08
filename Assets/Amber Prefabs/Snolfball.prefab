@@ -118,12 +118,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _stopVelocity: 0.005
-  _shotPower: -250
+  _shotPower: -350
   _jumpPower: 10
   _currentShotStrength: {x: 0, y: 0, z: 0}
   _lineRenderer: {fileID: 3709528760015285361}
   _isIdle: 0
   _checkpointManager: {fileID: 0}
+  _parManager: {fileID: 0}
 --- !u!135 &5851670916917444354
 SphereCollider:
   m_ObjectHideFlags: 0
