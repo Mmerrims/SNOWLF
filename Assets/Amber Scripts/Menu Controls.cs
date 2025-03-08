@@ -6,6 +6,7 @@ public class MenuControls : MonoBehaviour
 {
     [SerializeField] private GameObject MainMenuObjects;
     [SerializeField] private GameObject CreditsObject;
+    [SerializeField] private GameObject ControlsObject;
     public void NextScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
@@ -37,5 +38,17 @@ public class MenuControls : MonoBehaviour
     {
         MainMenuObjects.SetActive(true);
         CreditsObject.SetActive(false);
+    }
+
+    public void ShowControls()
+    {
+        MainMenuObjects.SetActive(false);
+        ControlsObject.SetActive(true);
+    }
+
+    public void HideControls()
+    {
+        MainMenuObjects.SetActive(true);
+        ControlsObject.SetActive(false);
     }
 }
