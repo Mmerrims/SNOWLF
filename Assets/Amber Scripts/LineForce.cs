@@ -22,6 +22,8 @@ public class LineForce : MonoBehaviour
 
     private void Awake()
     {
+        
+
         _parManager = FindObjectOfType<ParManager>();
 
 
@@ -32,6 +34,7 @@ public class LineForce : MonoBehaviour
         print(_checkpointManager.LastCheckPointPos);
         transform.position = _checkpointManager.LastCheckPointPos;
         rigidbody = GetComponent<Rigidbody>();
+        rigidbody.maxAngularVelocity = 9999999999999;
 
         isAiming = false;
         _isIdle = true;
