@@ -4,6 +4,7 @@ public class PressureDetector : MonoBehaviour
 {
     [SerializeField] private float _neededWeight;
     [SerializeField] private GameObject _wall;
+    [SerializeField] private Animator _anim;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -14,6 +15,7 @@ public class PressureDetector : MonoBehaviour
             {
                 print(other.transform.localScale);
                 _wall.SetActive(false);
+                _anim.Play("PressurePlateOn");
             }
         }
     }
