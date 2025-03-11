@@ -52,7 +52,10 @@ MonoBehaviour:
   maxScale: 3
   minScale: 1
   scaleDelay: 0.1
-  snolfSpeed: 0.1
+  SnolfSpeed: 0.1
+  maxScaleSpeed: 8
+  useSpeed: 0
+  scaleType: 1
 --- !u!33 &120095869987624187
 MeshFilter:
   m_ObjectHideFlags: 0
