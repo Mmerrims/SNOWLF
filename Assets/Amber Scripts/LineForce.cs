@@ -111,37 +111,53 @@ public class LineForce : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Launches the ball using the worldpoint of the mouse as a reference to check the velocity
+    /// </summary>
+    /// <param name="worldPoint"></param>
     private void Shoot(Vector3 worldPoint)
     {
+        // Checks if the par manager script is active
         if (_parManager != null)
         {
+            // Calls the AddHit void to add another point to the par
             _parManager.AddHit();
         }
-
+        // Makes it so the player is no longer counted for aiming, allowing them to repeat the other voids later
         isAiming = false;
+        // Turns off the line renderer while the ball is moving
         _lineRenderer.enabled = false;
-
+        // Sets up the horizontal world point vector, using the x and z from the mouse position as well as the position of the ball object on the y axis
         Vector3 horizontalWorldPoint = new Vector3(worldPoint.x, transform.position.y, worldPoint.z);
-
+        // Checks the direction the the ball will be getting launched, with the horizontal world point being subtracted to have the ball launch the opposite way of the mouse
         Vector3 direction = (horizontalWorldPoint - transform.position).normalized;
+        // Makes the ball launch based off the position of the mouse
         float strength = Vector3.Distance(transform.position, horizontalWorldPoint);
-
+        // Makes the strength of the shot based off the direction of the mouse, plus the strength of the world point, and then the actual power you input
         _currentShotStrength = (direction * strength * _shotPower);
+        // Makes the ball have additional jump strength on launch
         _currentShotStrength = new Vector3 (direction.x * strength * _shotPower, _jumpPower ,direction.z * strength * _shotPower);
-        
+        // divides the shot strength (too powerful otherwise)
         thisRigidbody.AddForce(_currentShotStrength / 2);
         // This makes it so the ball cannot be shot while moving
        //_isIdle = false;
     }
 
+    /// <summary>
+    /// Draws a line between the ball's position and the mouse raycast position
+    /// </summary>
+    /// <param name="worldPoint"></param>
     private void DrawLine(Vector3 worldPoint)
     {
+        // Makes a list of the ball's position and the mouse's world point
         Vector3[] positions =
         {
             transform.position,
             worldPoint
         };
+        // Makes the line renderer's position be the mouse position and the ball position
         _lineRenderer.SetPositions(positions);
+        // turns on the line renderer
         _lineRenderer.enabled = true;
     }
 
