@@ -1,3 +1,12 @@
+/*******************************************************************
+// File Name :         PlayerControlls.cs
+// Author :            Yael Martoral
+// Creation Date :     3/11/2025
+//
+// Brief Description : It controls actions that player can take outside
+// of the main control scheme of controlling the snolf ball
+/********************************************************************/
+
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -10,7 +19,7 @@ public class PlayerControls : MonoBehaviour
     [SerializeField] private bool gameRestarting = false;
     [SerializeField] private CheckpointManager _checkpointManager;
 
-
+    //It states Action Map actions like restart and quit so that they can later be called in game
     private void Awake()
     {
         _checkpointManager = FindObjectOfType<CheckpointManager>();
@@ -24,12 +33,14 @@ public class PlayerControls : MonoBehaviour
         quit.started += Quit;
     }
 
+    //It closes and quits the game
     private void Quit(InputAction.CallbackContext context)
     {
         Application.Quit();
         print("Quit");
     }
 
+    //When restart is called when the player only when the player presses the requiered button press 
     private void Restart(InputAction.CallbackContext context)
     {
         if (gameRestarting == false)
@@ -43,6 +54,7 @@ public class PlayerControls : MonoBehaviour
         }
     }
 
+    //When the main snolf ball enters a trigger that has the 'Death' tag on it, it restart the current scene
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Death"))
