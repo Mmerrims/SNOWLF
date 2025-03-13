@@ -111,66 +111,99 @@ public class LineForce : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Launches the ball using the worldpoint of the mouse as a reference to check the velocity
+    /// </summary>
+    /// <param name="worldPoint"></param>
     private void Shoot(Vector3 worldPoint)
     {
+        // Checks if the par manager script is active
         if (_parManager != null)
         {
+            // Calls the AddHit void to add another point to the par
             _parManager.AddHit();
         }
-
+        // Makes it so the player is no longer counted for aiming, allowing them to repeat the other voids later
         isAiming = false;
+        // Turns off the line renderer while the ball is moving
         _lineRenderer.enabled = false;
-
+        // Sets up the horizontal world point vector, using the x and z from the mouse position as well as the position of the ball object on the y axis
         Vector3 horizontalWorldPoint = new Vector3(worldPoint.x, transform.position.y, worldPoint.z);
-
+        // Checks the direction the the ball will be getting launched, with the horizontal world point being subtracted to have the ball launch the opposite way of the mouse
         Vector3 direction = (horizontalWorldPoint - transform.position).normalized;
+        // Makes the ball launch based off the position of the mouse
         float strength = Vector3.Distance(transform.position, horizontalWorldPoint);
-
+        // Makes the strength of the shot based off the direction of the mouse, plus the strength of the world point, and then the actual power you input
         _currentShotStrength = (direction * strength * _shotPower);
+        // Makes the ball have additional jump strength on launch
         _currentShotStrength = new Vector3 (direction.x * strength * _shotPower, _jumpPower ,direction.z * strength * _shotPower);
-        
+        // divides the shot strength (too powerful otherwise)
         thisRigidbody.AddForce(_currentShotStrength / 2);
         // This makes it so the ball cannot be shot while moving
        //_isIdle = false;
     }
 
+    /// <summary>
+    /// Draws a line between the ball's position and the mouse raycast position
+    /// </summary>
+    /// <param name="worldPoint"></param>
     private void DrawLine(Vector3 worldPoint)
     {
+        // Makes a list of the ball's position and the mouse's world point
         Vector3[] positions =
         {
             transform.position,
             worldPoint
         };
+        // Makes the line renderer's position be the mouse position and the ball position
         _lineRenderer.SetPositions(positions);
+        // turns on the line renderer
         _lineRenderer.enabled = true;
     }
 
+    /// <summary>
+    /// Stops the ball from rolling, activates once the ball is rolling 
+    /// </summary>
     private void Stop()
     {
+        // Makes the ball stop moving
         thisRigidbody.velocity = Vector3.zero;
         thisRigidbody.angularVelocity = Vector3.zero;
+        // Makes it so the ball is ready to be relaunched
         _isIdle = true;
     }
 
+    /// <summary>
+    /// Casts a ray from the mouse onto an object's position, which is then used to launch the ball
+    /// </summary>
+    /// <returns></returns>
     private Vector3? CastMouseClickRay()
     {
-        Vector3 screenMouusePosFar = new Vector3
+        // Sets up the far mouse position
+        Vector3 screenMousePosFar = new Vector3
             (
+                // Finds the mouse position based on the farclipplane of the camera
                 Input.mousePosition.x,
                 Input.mousePosition.y,
                 Camera.main.farClipPlane
             );
-        Vector3 screenMouusePosNear = new Vector3
+        // Sets up the near mouse position
+        Vector3 screenMousePosNear = new Vector3
             (
+                // Finds the mouse position based on the nearclipplane of the camera
                 Input.mousePosition.x,
                 Input.mousePosition.y,
                 Camera.main.nearClipPlane
             );
-        Vector3 worldMousePosFar = Camera.main.ScreenToWorldPoint(screenMouusePosFar);
-        Vector3 worldMousePosNear = Camera.main.ScreenToWorldPoint(screenMouusePosNear);
+        // Sets up the mouse position and gives it a position in the world that is used for the launching measurements
+        Vector3 worldMousePosFar = Camera.main.ScreenToWorldPoint(screenMousePosFar);
+        Vector3 worldMousePosNear = Camera.main.ScreenToWorldPoint(screenMousePosNear);
+        // Shoots the raycast
         RaycastHit hit;
+        // Checks if the raycast hits anything, and sets up what it can hit as well as where it will hit
         if (Physics.Raycast(worldMousePosNear, worldMousePosFar - worldMousePosNear, out hit, float.PositiveInfinity, layerMask))
         {
+            // Sets up the hit point
             return hit.point;
         } else
         {
