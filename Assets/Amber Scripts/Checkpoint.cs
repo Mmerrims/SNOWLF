@@ -1,4 +1,11 @@
 
+/*****************************************************************************
+// File Name :         Checkpoint.cs
+// Author :            Amber C. Cardamone
+// Creation Date :     March 13th, 2025
+//
+// Brief Description : Checks if the player collides with it, and updates the checkpoint manager to use this object's position for respawn
+*****************************************************************************/
 using UnityEngine;
 
 public class Checkpoint : MonoBehaviour
