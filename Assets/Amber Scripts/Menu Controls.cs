@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class MenuControls : MonoBehaviour
@@ -7,19 +6,29 @@ public class MenuControls : MonoBehaviour
     [SerializeField] private GameObject MainMenuObjects;
     [SerializeField] private GameObject CreditsObject;
     [SerializeField] private GameObject ControlsObject;
+    [SerializeField] private CheckpointManager _checkpointManager;
+
+    private void Start()
+    {
+        _checkpointManager = FindObjectOfType<CheckpointManager>();
+    }
+
     public void NextScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        _checkpointManager.NewLevel();
     }
 
     public void Quit()
     {
         Application.Quit();
+        _checkpointManager.NewLevel();
     }
 
     public void Menu()
     {
         SceneManager.LoadScene("Main Menu");
+        _checkpointManager.NewLevel();
     }
 
     public void Back()
