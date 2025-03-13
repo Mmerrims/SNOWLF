@@ -1,5 +1,3 @@
-
-
 /*****************************************************************************
 // File Name :         Checkpoint Manager.cs
 // Author :            Amber C. Cardamone
