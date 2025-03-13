@@ -81,6 +81,7 @@ public class SetScale : MonoBehaviour
 
 }
 
+//It determines all the types of terrain that can change the scale of the Snolf Ball
 public enum ScaleChangerType
 {
     SNOW,
