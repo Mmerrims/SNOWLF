@@ -1,3 +1,10 @@
+/*****************************************************************************
+// File Name :         Follow Player.cs
+// Author :            Amber C. Cardamone
+// Creation Date :     March 11th, 2025
+//
+// Brief Description : Not in use, ignore
+*****************************************************************************/
 using UnityEngine;
 
 public class FollowPlayer : MonoBehaviour

@@ -161,32 +161,49 @@ public class LineForce : MonoBehaviour
         _lineRenderer.enabled = true;
     }
 
+    /// <summary>
+    /// Stops the ball from rolling, activates once the ball is rolling 
+    /// </summary>
     private void Stop()
     {
+        // Makes the ball stop moving
         thisRigidbody.velocity = Vector3.zero;
         thisRigidbody.angularVelocity = Vector3.zero;
+        // Makes it so the ball is ready to be relaunched
         _isIdle = true;
     }
 
+    /// <summary>
+    /// Casts a ray from the mouse onto an object's position, which is then used to launch the ball
+    /// </summary>
+    /// <returns></returns>
     private Vector3? CastMouseClickRay()
     {
-        Vector3 screenMouusePosFar = new Vector3
+        // Sets up the far mouse position
+        Vector3 screenMousePosFar = new Vector3
             (
+                // Finds the mouse position based on the farclipplane of the camera
                 Input.mousePosition.x,
                 Input.mousePosition.y,
                 Camera.main.farClipPlane
             );
-        Vector3 screenMouusePosNear = new Vector3
+        // Sets up the near mouse position
+        Vector3 screenMousePosNear = new Vector3
             (
+                // Finds the mouse position based on the nearclipplane of the camera
                 Input.mousePosition.x,
                 Input.mousePosition.y,
                 Camera.main.nearClipPlane
             );
-        Vector3 worldMousePosFar = Camera.main.ScreenToWorldPoint(screenMouusePosFar);
-        Vector3 worldMousePosNear = Camera.main.ScreenToWorldPoint(screenMouusePosNear);
+        // Sets up the mouse position and gives it a position in the world that is used for the launching measurements
+        Vector3 worldMousePosFar = Camera.main.ScreenToWorldPoint(screenMousePosFar);
+        Vector3 worldMousePosNear = Camera.main.ScreenToWorldPoint(screenMousePosNear);
+        // Shoots the raycast
         RaycastHit hit;
+        // Checks if the raycast hits anything, and sets up what it can hit as well as where it will hit
         if (Physics.Raycast(worldMousePosNear, worldMousePosFar - worldMousePosNear, out hit, float.PositiveInfinity, layerMask))
         {
+            // Sets up the hit point
             return hit.point;
         } else
         {

@@ -1,3 +1,10 @@
+/*****************************************************************************
+// File Name :         Checkpoint Manager.cs
+// Author :            Amber C. Cardamone
+// Creation Date :     March 13th, 2025
+//
+// Brief Description : Sets up the checkpoint system, making the player respawn at checkpoints.
+*****************************************************************************/
 
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -30,6 +37,9 @@ public class CheckpointManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Resets the checkpoint, setting the player back to spawn
+    /// </summary>
     public void NewLevel()
     {
         LastCheckPointPos = new Vector3(0, 0, 0);
