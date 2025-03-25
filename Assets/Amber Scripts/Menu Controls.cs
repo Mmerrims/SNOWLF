@@ -5,6 +5,8 @@
 //
 // Brief Description : Used as the code all buttons reference, opening/closing menus and changing scenes.
 *****************************************************************************/
+using JetBrains.Annotations;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -14,6 +16,9 @@ public class MenuControls : MonoBehaviour
     [SerializeField] private GameObject CreditsObject;
     [SerializeField] private GameObject ControlsObject;
     [SerializeField] private CheckpointManager _checkpointManager;
+    [SerializeField] private GameObject LevelSelectMenu;
+    [SerializeField] private GameObject LevelSelectButton;
+    private bool isLevelSelectOpen;
 
     /// <summary>
     /// Finds the object with a checkpoint manager in the scene
@@ -100,4 +105,41 @@ public class MenuControls : MonoBehaviour
         MainMenuObjects.SetActive(true);
         ControlsObject.SetActive(false);
     }
+    //Quinn. This opens the level select menu. It is not a new scene
+    public void OpenLevelSelectMenu()
+    {
+        if(isLevelSelectOpen == false)
+        {
+            LevelSelectButton.SetActive(false);
+            LevelSelectMenu.SetActive(true);
+            isLevelSelectOpen = true;
+            //Disable everything else
+            MainMenuObjects.SetActive(false);
+        }
+        else if(isLevelSelectOpen == true)
+        {
+            LevelSelectButton.SetActive(true);
+            LevelSelectMenu.SetActive(false);
+            isLevelSelectOpen = false;
+            //enable everything else
+            MainMenuObjects.SetActive(true) ;
+        }
+    }
+
+    public void LoadLevel1()
+    {
+        SceneManager.LoadScene("Course1");
+    }
+
+    public void LoadLevel2()
+    {
+        SceneManager.LoadScene("Course2");
+    }
+
+
+    public void LoadLevel3()
+    {
+        SceneManager.LoadScene("Course3");
+    }
+
 }
