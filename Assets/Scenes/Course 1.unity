@@ -4045,7 +4045,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1686939721
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4085,14 +4085,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Click + Drag ball to launch ball!
+  m_text: 'Right Click to rotate camera
 
-    Snow increases ball, salt decreases!
-
-    Increase
-    ball size to activate Pressure plate! (Grey box)
-
-    Get to the hole! (Green)'
+    Click + Drag to Launch Ball'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4481,6 +4476,75 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1758752756
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4671701531047413207, guid: 254b4bb8c9cd24d44a7ace533e89cc56, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.3286141
+      objectReference: {fileID: 0}
+    - target: {fileID: 4671701531047413207, guid: 254b4bb8c9cd24d44a7ace533e89cc56, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5.5264487
+      objectReference: {fileID: 0}
+    - target: {fileID: 4671701531047413207, guid: 254b4bb8c9cd24d44a7ace533e89cc56, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.37560654
+      objectReference: {fileID: 0}
+    - target: {fileID: 4671701531047413207, guid: 254b4bb8c9cd24d44a7ace533e89cc56, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4671701531047413207, guid: 254b4bb8c9cd24d44a7ace533e89cc56, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 4671701531047413207, guid: 254b4bb8c9cd24d44a7ace533e89cc56, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 13.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4671701531047413207, guid: 254b4bb8c9cd24d44a7ace533e89cc56, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9421637
+      objectReference: {fileID: 0}
+    - target: {fileID: 4671701531047413207, guid: 254b4bb8c9cd24d44a7ace533e89cc56, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4671701531047413207, guid: 254b4bb8c9cd24d44a7ace533e89cc56, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.33515307
+      objectReference: {fileID: 0}
+    - target: {fileID: 4671701531047413207, guid: 254b4bb8c9cd24d44a7ace533e89cc56, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4671701531047413207, guid: 254b4bb8c9cd24d44a7ace533e89cc56, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4671701531047413207, guid: 254b4bb8c9cd24d44a7ace533e89cc56, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -39.164
+      objectReference: {fileID: 0}
+    - target: {fileID: 4671701531047413207, guid: 254b4bb8c9cd24d44a7ace533e89cc56, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5385630165760800820, guid: 254b4bb8c9cd24d44a7ace533e89cc56, type: 3}
+      propertyPath: m_Name
+      value: TutorialSignSnow
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 254b4bb8c9cd24d44a7ace533e89cc56, type: 3}
 --- !u!1001 &1799063308
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4664,6 +4728,75 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!1001 &2094300781
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1279943896346176694, guid: 3552456ccc469e54084a0925031980ca, type: 3}
+      propertyPath: m_Name
+      value: TutorialSignPressurePlate (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4310668203591394636, guid: 3552456ccc469e54084a0925031980ca, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.2176102
+      objectReference: {fileID: 0}
+    - target: {fileID: 4310668203591394636, guid: 3552456ccc469e54084a0925031980ca, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3.6596475
+      objectReference: {fileID: 0}
+    - target: {fileID: 4310668203591394636, guid: 3552456ccc469e54084a0925031980ca, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.2487289
+      objectReference: {fileID: 0}
+    - target: {fileID: 4310668203591394636, guid: 3552456ccc469e54084a0925031980ca, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.87
+      objectReference: {fileID: 0}
+    - target: {fileID: 4310668203591394636, guid: 3552456ccc469e54084a0925031980ca, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.29
+      objectReference: {fileID: 0}
+    - target: {fileID: 4310668203591394636, guid: 3552456ccc469e54084a0925031980ca, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 14.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 4310668203591394636, guid: 3552456ccc469e54084a0925031980ca, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9686491
+      objectReference: {fileID: 0}
+    - target: {fileID: 4310668203591394636, guid: 3552456ccc469e54084a0925031980ca, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4310668203591394636, guid: 3552456ccc469e54084a0925031980ca, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.2484333
+      objectReference: {fileID: 0}
+    - target: {fileID: 4310668203591394636, guid: 3552456ccc469e54084a0925031980ca, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4310668203591394636, guid: 3552456ccc469e54084a0925031980ca, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4310668203591394636, guid: 3552456ccc469e54084a0925031980ca, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 28.77
+      objectReference: {fileID: 0}
+    - target: {fileID: 4310668203591394636, guid: 3552456ccc469e54084a0925031980ca, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3552456ccc469e54084a0925031980ca, type: 3}
 --- !u!1 &2104368452
 GameObject:
   m_ObjectHideFlags: 0
@@ -5322,6 +5455,8 @@ SceneRoots:
   - {fileID: 4293625271284270151}
   - {fileID: 870967322}
   - {fileID: 914062754}
+  - {fileID: 2094300781}
+  - {fileID: 1758752756}
   - {fileID: 3531878088309226672}
   - {fileID: 1644854869}
   - {fileID: 259669340}
