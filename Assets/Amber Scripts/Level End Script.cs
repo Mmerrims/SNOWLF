@@ -19,7 +19,6 @@ public class LevelEndScript : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            audioManager.goalReached();
             _winScreen.SetActive(true);
         }
     }
