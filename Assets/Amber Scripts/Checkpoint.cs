@@ -21,7 +21,7 @@ public class Checkpoint : MonoBehaviour
     void Start()
     {
         CM = FindObjectOfType<CheckpointManager>();
-        audioManagerObject = GameObject.Find("Audio Manager");
+        audioManagerObject = GameObject.Find("AudioManager");
         if (audioManagerObject != null)
         {
             audioManager = audioManagerObject.GetComponent<AudioManager>();
