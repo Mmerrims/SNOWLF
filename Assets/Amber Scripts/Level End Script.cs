@@ -15,7 +15,7 @@ public class LevelEndScript : MonoBehaviour
 
     public void Start()
     {
-        audioManagerObject = GameObject.Find("Audio Manager");
+        audioManagerObject = GameObject.Find("AudioManager");
         if (audioManagerObject != null)
         {
             audioManager = audioManagerObject.GetComponent<AudioManager>();

@@ -50,7 +50,7 @@ public class LineForce : MonoBehaviour
         _isIdle = true;
         // Makes it so the line renderer for the ball drag isn't rendered
         _lineRenderer.enabled = false;
-        audioManagerObject = GameObject.Find("Audio Manager");
+        audioManagerObject = GameObject.Find("AudioManager");
         if (audioManagerObject != null)
         {
             audioManager = audioManagerObject.GetComponent<AudioManager>();
