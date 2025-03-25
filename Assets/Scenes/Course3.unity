@@ -13379,13 +13379,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1955186792761738354, guid: ebcf242112dd7e84eaed55fa2a3af4c0, type: 3}
+    - target: {fileID: 118147200143138884, guid: ebcf242112dd7e84eaed55fa2a3af4c0, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1955186792761738354, guid: ebcf242112dd7e84eaed55fa2a3af4c0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4354337127579256360, guid: ebcf242112dd7e84eaed55fa2a3af4c0, type: 3}
       propertyPath: m_Name
       value: MenuManagerUpdated
+      objectReference: {fileID: 0}
+    - target: {fileID: 6595228763353536851, guid: ebcf242112dd7e84eaed55fa2a3af4c0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7195569263180935374, guid: ebcf242112dd7e84eaed55fa2a3af4c0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7460371243059511047, guid: ebcf242112dd7e84eaed55fa2a3af4c0, type: 3}
       propertyPath: m_LocalPosition.x
