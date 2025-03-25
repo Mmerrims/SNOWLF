@@ -23,6 +23,8 @@ public class LineForce : MonoBehaviour
     [SerializeField] private CheckpointManager _checkpointManager;
     [SerializeField] private ParManager _parManager;
     private LayerMask layerMask;
+    public AudioManager audioManager;
+    public GameObject audioManagerObject;
 
     /// <summary>
     /// Sets everything up.
@@ -48,6 +50,11 @@ public class LineForce : MonoBehaviour
         _isIdle = true;
         // Makes it so the line renderer for the ball drag isn't rendered
         _lineRenderer.enabled = false;
+        audioManagerObject = GameObject.Find("Audio Manager");
+        if (audioManagerObject != null)
+        {
+            audioManager = audioManagerObject.GetComponent<AudioManager>();
+        }
     }
 
     /// <summary>
@@ -123,6 +130,7 @@ public class LineForce : MonoBehaviour
             // Calls the AddHit void to add another point to the par
             _parManager.AddHit();
         }
+        audioManager.ballHit();
         // Makes it so the player is no longer counted for aiming, allowing them to repeat the other voids later
         isAiming = false;
         // Turns off the line renderer while the ball is moving

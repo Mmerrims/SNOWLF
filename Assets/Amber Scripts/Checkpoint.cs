@@ -6,11 +6,14 @@
 //
 // Brief Description : Checks if the player collides with it, and updates the checkpoint manager to use this object's position for respawn
 *****************************************************************************/
+using JetBrains.Annotations;
 using UnityEngine;
 
 public class Checkpoint : MonoBehaviour
 {
     public CheckpointManager CM; //Grabs the game manager
+    public AudioManager audioManager;
+    public GameObject audioManagerObject;
 
     /// <summary>
     /// Grabs the GameManager script at the start.
@@ -18,6 +21,11 @@ public class Checkpoint : MonoBehaviour
     void Start()
     {
         CM = FindObjectOfType<CheckpointManager>();
+        audioManagerObject = GameObject.Find("Audio Manager");
+        if (audioManagerObject != null)
+        {
+            audioManager = audioManagerObject.GetComponent<AudioManager>();
+        }
     }
 
     /// <summary>
@@ -29,6 +37,7 @@ public class Checkpoint : MonoBehaviour
         // Checks if this object collides with an object with the "Player" tag
         if (other.gameObject.tag == "Player")
         {
+            audioManager.checkpoint();
             // Sets the GameManager's checkpoint system to this current checkpoint
             CM.LastCheckPointPos = transform.position;
             // Removes the checkpoint, making it so the player can't accidentally go back to an older checkpoint
