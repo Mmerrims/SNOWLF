@@ -33,6 +33,8 @@ public class LevelEndScript : MonoBehaviour
         {
             // Turns on the win screen object
             _winScreen.SetActive(true);
+            audioManager.goalReached();
+
         }
     }
 }
