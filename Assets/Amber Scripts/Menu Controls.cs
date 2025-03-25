@@ -128,7 +128,7 @@ public class MenuControls : MonoBehaviour
 
     public void LoadLevel1()
     {
-        SceneManager.LoadScene("Course1");
+        SceneManager.LoadScene("Course 1");
     }
 
     public void LoadLevel2()
