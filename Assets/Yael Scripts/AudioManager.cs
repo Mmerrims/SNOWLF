@@ -2,14 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class AudioManager : MonoBehaviour
 {
     public AudioSource audioSource;
     public AudioClip ballHitSFX;
     public AudioClip checkpointSFX;
     public AudioClip goalReachSFX;
-    public AudioClip levelSelectSFX;
-    public AudioClip screenSelectSFX;
 
     
     public void ballHit()
@@ -25,11 +23,6 @@ public class NewBehaviourScript : MonoBehaviour
     public void goalReached()
     {
         audioSource.PlayOneShot(goalReachSFX);
-    }
-
-    public void levelSelect()
-    {
-        audioSource.PlayOneShot(levelSelectSFX);
     }
 
 }
