@@ -5394,7 +5394,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82d4e00d39231644a8ee262938d8b131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LevelsPar: 3
+  LevelsPar: 18
 --- !u!4 &1714335104
 Transform:
   m_ObjectHideFlags: 0
@@ -7543,7 +7543,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8658981255442930488, guid: ebcf242112dd7e84eaed55fa2a3af4c0, type: 3}
       propertyPath: m_text
-      value: 'Level Par: 3'
+      value: 'Level Par: 18'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
